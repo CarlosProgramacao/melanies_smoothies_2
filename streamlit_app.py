@@ -26,7 +26,7 @@ if options:
 
     for fruit in options:
         fruits_list += fruit + ' '
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")  
+        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{fruit}")  
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 
