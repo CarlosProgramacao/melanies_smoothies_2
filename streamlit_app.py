@@ -1,18 +1,13 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 session = get_active_session()
 
+cnx = st.connection("snowflake")
+session = cnx.session()
+
 # Write directly to the app
 st.title(f"Customize your smoothie!")
-st.write(
-  """Replace this example with your own code!
-  **And if you're new to Streamlit,** check
-  out our easy-to-follow guides at
-  [docs.streamlit.io](https://docs.streamlit.io).
-  """
-)
 
 name_on_order = st.text_input("Name on the order")
 
