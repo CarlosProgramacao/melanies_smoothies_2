@@ -26,6 +26,9 @@ if options:
 
     for fruit in options:
         fruits_list += fruit + ' '
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")  
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
 
     st.write("You selected:", fruits_list)
     
@@ -38,7 +41,3 @@ if options:
     ).collect()
         
         st.success(f'Order submitted, {name_on_order}!', icon="✅")
-
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")  
-# st.text(smoothiefroot_response.json())
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
