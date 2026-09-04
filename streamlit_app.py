@@ -13,7 +13,8 @@ name_on_order = st.text_input("Name on the order")
 
 st.write('The name on your Smoothie order will be:', name_on_order)
 
-fruit_options = session.table("smoothies.test.fruit_options").select(col("FRUIT_NAME"))
+fruit_options = session.table("smoothies.test.fruit_options").select(col("FRUIT_NAME"),col('SEARCH_ON'))
+st.stop()
 
 options = st.multiselect(
     "Choose up to 5 ingredients:",
